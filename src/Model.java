@@ -8,14 +8,19 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Model {
+
     void create() throws IOException {
+
         JFrame frame = new JFrame("GUESS NUMBER GAME");
+
+
         JPanel panel = new JPanel(){
             @Override
             public Dimension getPreferredSize() {
                 return new Dimension(400, 500);
             }
         };
+
 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
@@ -52,10 +57,6 @@ public class Model {
         numOne.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         numTwo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         numThree.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
-
-
-
-
 
 
         panel.setBackground(Color.DARK_GRAY);
