@@ -7,8 +7,16 @@ import java.awt.*;
 public class Model {
     void create(){
         JFrame frame = new JFrame("GUESS NUMBER GAME");
-        JPanel panel = new JPanel();
-        frame.setSize(300,300);
+        JPanel panel = new JPanel(){
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(400, 500);
+            }
+        };
+
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
+        frame.setSize(400,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         ImageIcon imageIcon = new ImageIcon("C:\\Users\\Max.000\\IdeaProjects\\Guess_Number_Game\\Q.png");
@@ -16,9 +24,9 @@ public class Model {
         JLabel numTwo = new JLabel("TWO");
         JLabel numThree = new JLabel("THREE");
 
-        numOne.setBounds(10,10,50,100);
-        numTwo.setBounds(70,10,50,100);
-        numThree.setBounds(130,10,50,100);
+        numOne.setBounds(10,10,120,200);
+        numTwo.setBounds(140,10,120,200);
+        numThree.setBounds(270,10,120,200);
 
         numOne.setOpaque(true);
         numTwo.setOpaque(true);
@@ -27,19 +35,23 @@ public class Model {
         numOne.setIcon(imageIcon);
 
         numOne.setBackground(Color.green);
-        numOne.setForeground(Color.green);
         numTwo.setBackground(Color.YELLOW);
         numThree.setBackground(Color.BLUE);
 
-        panel.add(numOne);
-        panel.add(numTwo);
-        panel.add(numThree);
 
-        panel.setBounds(40,80,300,300);
-        panel.setBackground(Color.gray);
 
-        frame.setLayout(null);
+        frame.add(numOne);
+        frame.add(numTwo);
+        frame.add(numThree);
+
+
+
+
+        panel.setBackground(Color.DARK_GRAY);
+
+        frame.setLocationRelativeTo(null);
         frame.add(panel);
+        frame.pack();
         frame.setVisible(true);
 
 
