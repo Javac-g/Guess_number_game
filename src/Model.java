@@ -1,11 +1,14 @@
 import javafx.scene.layout.Border;
 
 import javax.annotation.Generated;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Model {
-    void create(){
+    void create() throws IOException {
         JFrame frame = new JFrame("GUESS NUMBER GAME");
         JPanel panel = new JPanel(){
             @Override
@@ -19,10 +22,21 @@ public class Model {
         frame.setSize(400,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\Max.000\\IdeaProjects\\Guess_Number_Game\\Q.png");
-        JLabel numOne = new JLabel("ONE"); //JLabel Creation
-        JLabel numTwo = new JLabel("TWO");
-        JLabel numThree = new JLabel("THREE");
+        BufferedImage hidden1 = ImageIO.read(getClass().getResource("Q.png"));
+        BufferedImage hidden2 = ImageIO.read(getClass().getResource("Q.png"));
+        BufferedImage hidden3 = ImageIO.read(getClass().getResource("Q.png"));
+
+        //ImageIcon imageIcon = new ImageIcon("C:\\Users\\Max.000\\IdeaProjects\\Guess_Number_Game\\Q.png");
+        JLabel numOne = new JLabel(new ImageIcon(hidden1)); //JLabel Creation
+        JLabel numTwo = new JLabel(new ImageIcon(hidden2));
+        JLabel numThree = new JLabel(new ImageIcon(hidden3));
+
+        JButton button = new JButton("ENTER");
+        button.setBounds(140,420,120,60);
+
+        //numOne.setIcon(new ImageIcon("C:\\Users\\Max.000\\IdeaProjects\\Guess_Number_Game\\Q.png"));
+        numOne.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        numOne.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         numOne.setBounds(10,10,120,200);
         numTwo.setBounds(140,10,120,200);
@@ -32,14 +46,17 @@ public class Model {
         numTwo.setOpaque(true);
         numThree.setOpaque(true);
 
-        numOne.setIcon(imageIcon);
+        //numOne.setIcon(imageIcon);
 
-        numOne.setBackground(Color.green);
+        //numOne.setBackground(Image);
         numTwo.setBackground(Color.YELLOW);
         numThree.setBackground(Color.BLUE);
 
+        numOne.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
+        numTwo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
+        numThree.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
-
+        frame.add(button);
         frame.add(numOne);
         frame.add(numTwo);
         frame.add(numThree);
@@ -51,6 +68,7 @@ public class Model {
 
         frame.setLocationRelativeTo(null);
         frame.add(panel);
+        frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
 
