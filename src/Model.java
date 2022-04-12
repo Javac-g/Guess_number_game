@@ -58,7 +58,6 @@ public class Model {
         numTwo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         numThree.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
-
         panel.setBackground(Color.DARK_GRAY);
 
         frame.add(oneT);
@@ -74,9 +73,6 @@ public class Model {
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
-
-
-
 
 
     }
