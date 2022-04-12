@@ -31,6 +31,14 @@ public class Model {
         JLabel numTwo = new JLabel(new ImageIcon(hidden2));
         JLabel numThree = new JLabel(new ImageIcon(hidden3));
 
+        JTextField oneT = new JTextField();
+        JTextField twoT = new JTextField();
+        JTextField threeT = new JTextField();
+
+        oneT.setBounds(10,210,120,50);
+        twoT.setBounds(140,210,120,50);
+        threeT.setBounds(270,210,120,50);
+
         JButton button = new JButton("ENTER");
         button.setBounds(140,420,120,60);
 
@@ -55,6 +63,11 @@ public class Model {
         numOne.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         numTwo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         numThree.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
+
+        frame.add(oneT);
+        frame.add(twoT);
+        frame.add(threeT);
+
 
         frame.add(button);
         frame.add(numOne);
