@@ -76,5 +76,9 @@ public class Model {
 
 
     }
+    void game(){
+
+    }
+
 
 }
