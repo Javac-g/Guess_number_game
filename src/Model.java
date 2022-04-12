@@ -34,18 +34,12 @@ public class Model {
         JTextField oneT = new JTextField();
         JTextField twoT = new JTextField();
         JTextField threeT = new JTextField();
+        JButton button = new JButton("ENTER");
 
         oneT.setBounds(10,210,120,30);
         twoT.setBounds(140,210,120,30);
         threeT.setBounds(270,210,120,30);
-
-        JButton button = new JButton("ENTER");
         button.setBounds(140,420,120,60);
-
-
-        numOne.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        numOne.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         numOne.setBounds(10,10,120,200);
         numTwo.setBounds(140,10,120,200);
         numThree.setBounds(270,10,120,200);
@@ -55,30 +49,27 @@ public class Model {
         numThree.setOpaque(true);
 
 
-        numTwo.setBackground(Color.YELLOW);
-        numThree.setBackground(Color.BLUE);
-
         numOne.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         numTwo.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
         numThree.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
-        frame.add(oneT);
-        frame.add(twoT);
-        frame.add(threeT);
 
-
-        frame.add(button);
-        frame.add(numOne);
-        frame.add(numTwo);
-        frame.add(numThree);
 
 
 
 
         panel.setBackground(Color.DARK_GRAY);
 
-        frame.setLocationRelativeTo(null);
+        frame.add(oneT);
+        frame.add(twoT);
+        frame.add(threeT);
+        frame.add(button);
+        frame.add(numOne);
+        frame.add(numTwo);
+        frame.add(numThree);
         frame.add(panel);
+
+        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
