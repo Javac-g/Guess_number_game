@@ -35,9 +35,9 @@ public class Model {
         JTextField twoT = new JTextField();
         JTextField threeT = new JTextField();
 
-        oneT.setBounds(10,210,120,50);
-        twoT.setBounds(140,210,120,50);
-        threeT.setBounds(270,210,120,50);
+        oneT.setBounds(10,210,120,30);
+        twoT.setBounds(140,210,120,30);
+        threeT.setBounds(270,210,120,30);
 
         JButton button = new JButton("ENTER");
         button.setBounds(140,420,120,60);
