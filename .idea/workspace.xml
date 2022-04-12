@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="00036b40-a028-4c96-9202-7da4d0336315" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Guess_Number_Game/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Guess_Number_Game/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1649774011119</updated>
       <workItem from="1649774015879" duration="2603000" />
-      <workItem from="1649786636594" duration="9039000" />
+      <workItem from="1649786636594" duration="9375000" />
     </task>
     <servers />
   </component>

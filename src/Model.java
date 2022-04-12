@@ -42,7 +42,7 @@ public class Model {
         JButton button = new JButton("ENTER");
         button.setBounds(140,420,120,60);
 
-        //numOne.setIcon(new ImageIcon("C:\\Users\\Max.000\\IdeaProjects\\Guess_Number_Game\\Q.png"));
+
         numOne.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numOne.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -54,9 +54,7 @@ public class Model {
         numTwo.setOpaque(true);
         numThree.setOpaque(true);
 
-        //numOne.setIcon(imageIcon);
 
-        //numOne.setBackground(Image);
         numTwo.setBackground(Color.YELLOW);
         numThree.setBackground(Color.BLUE);
 
