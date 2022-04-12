@@ -26,8 +26,8 @@ public class Model {
         BufferedImage hidden2 = ImageIO.read(getClass().getResource("Q.png"));
         BufferedImage hidden3 = ImageIO.read(getClass().getResource("Q.png"));
 
-        //ImageIcon imageIcon = new ImageIcon("C:\\Users\\Max.000\\IdeaProjects\\Guess_Number_Game\\Q.png");
-        JLabel numOne = new JLabel(new ImageIcon(hidden1)); //JLabel Creation
+
+        JLabel numOne = new JLabel(new ImageIcon(hidden1));
         JLabel numTwo = new JLabel(new ImageIcon(hidden2));
         JLabel numThree = new JLabel(new ImageIcon(hidden3));
 
