@@ -6,9 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 public class Model {
 
+    Random r;
+    Integer firstSecret,SecondSecret,ThirdSecret,GuessOne,GuessTwo,GuessThree;
     BufferedImage hidden1,hidden2,hidden3;
     BufferedImage ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE;
 
@@ -42,6 +45,9 @@ public class Model {
         hidden1 = ImageIO.read(getClass().getResource("Q.png"));
         hidden2 = ImageIO.read(getClass().getResource("Q.png"));
         hidden3 = ImageIO.read(getClass().getResource("Q.png"));
+        ONE =  ImageIO.read(getClass().getResource("1.png"));
+        TWO = ImageIO.read(getClass().getResource("2.png"));
+        THREE = ImageIO.read(getClass().getResource("3.png"));
 
 
 
@@ -93,7 +99,26 @@ public class Model {
     }
     void game(){
 
+        firstSecret = r.nextInt(9);
+        SecondSecret = r.nextInt(9);
+        ThirdSecret = r.nextInt(9);
 
+        button.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                //Add a 1 to the last selected text field
+                GuessOne = Integer.valueOf(oneT.getText());
+                GuessTwo = Integer.valueOf(twoT.getText());
+                GuessThree = Integer.valueOf(threeT.getText());
+
+
+            }
+        });
+
+        if(GuessOne.equals(firstSecret)){
+
+        }
 
 
     }
