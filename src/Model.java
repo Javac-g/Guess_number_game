@@ -145,18 +145,23 @@ public class Model implements ActionListener {
         GuessThree = Integer.parseInt(threeT.getText());
             x.setText(GuessOne + " :Guess");
 
-            if(GuessOne.equals(firstSecret)){
+            if(GuessOne.equals(firstSecret)& !GuessTwo.equals(SecondSecret) & !GuessThree.equals(ThirdSecret)){
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
+
                     x.setText("Верно");
+                    y.setText("Не верно");
+                    z.setText("Не верно");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             }
-            else if(GuessTwo.equals(SecondSecret)){
+            else if(GuessTwo.equals(SecondSecret) ){
                 try {
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
+                    x.setText("Не верно");
                     y.setText("Верно");
+                    z.setText("Не верно");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -164,6 +169,8 @@ public class Model implements ActionListener {
             else if(GuessThree.equals(ThirdSecret)){
                 try {
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
+                    x.setText("Не верно");
+                    y.setText("Не верно");
                     z.setText("Верно");
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -172,22 +179,30 @@ public class Model implements ActionListener {
             else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret)){
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(numOne + ".png"))));
-                    z.setText("Верно");
+                    x.setText("Верно");
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     y.setText("Верно");
+                    z.setText("Не верно");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             }
-            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret)){
+            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & GuessThree.equals(ThirdSecret)){
                 try {
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
-                    z.setText("Верно");
+                    x.setText("Верно");
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     y.setText("Верно");
+                    numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
+                    z.setText("Верно");
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
+            }
+            else {
+                x.setText("Не верно");
+                y.setText("Не верно");
+                z.setText("Не верно");
             }
 
 
