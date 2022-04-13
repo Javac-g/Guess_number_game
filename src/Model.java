@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -29,7 +30,7 @@ public class Model implements ActionListener {
     JButton button;
 
     Dimension dim;
-
+    File file;
 
     void create() throws IOException {
         dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -145,13 +146,48 @@ public class Model implements ActionListener {
             x.setText(GuessOne + " :Guess");
 
             if(GuessOne.equals(firstSecret)){
-                numOne.setIcon(new ImageIcon(String.valueOf(GuessOne) + ".png"));
+                try {
+                    numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
+                    x.setText("Верно");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
             else if(GuessTwo.equals(SecondSecret)){
-                numTwo.setIcon(new ImageIcon(GuessTwo + ".png"));
+                try {
+                    numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
+                    y.setText("Верно");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
             else if(GuessThree.equals(ThirdSecret)){
-                numThree.setIcon(new ImageIcon(GuessThree + ".png"));
+                try {
+                    numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
+                    z.setText("Верно");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret)){
+                try {
+                    numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(numOne + ".png"))));
+                    z.setText("Верно");
+                    numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
+                    y.setText("Верно");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret)){
+                try {
+                    numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
+                    z.setText("Верно");
+                    numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
+                    y.setText("Верно");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
 
 
