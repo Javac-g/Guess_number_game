@@ -13,21 +13,21 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Model implements ActionListener {
-
+    boolean flag = false;
     Random r = new Random();
-    Integer firstSecret,SecondSecret,ThirdSecret;
-    Integer GuessOne ;
-    Integer GuessTwo ;
-    Integer GuessThree ;
-    BufferedImage hidden1,hidden2,hidden3;
-    BufferedImage ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,ZERO;
+    Integer firstSecret, SecondSecret, ThirdSecret;
+    Integer GuessOne;
+    Integer GuessTwo;
+    Integer GuessThree;
+    BufferedImage hidden1, hidden2, hidden3;
+    BufferedImage ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO;
 
     static JFrame frame;
     static JPanel panel;
 
-    JLabel numOne,numTwo,numThree,x,y,z;
+    JLabel numOne, numTwo, numThree, x, y, z;
     JTextField oneT, twoT, threeT;
-    JButton button;
+    JButton button, res;
 
     Dimension dim;
     File file;
@@ -81,6 +81,7 @@ public class Model implements ActionListener {
         twoT = new JTextField();
         threeT = new JTextField();
         button = new JButton("ENTER");
+        res = new JButton("RESET GAME");
 
         oneT.setBounds(10, 210, 120, 30);
         x.setBounds(50, 160, 120, 200);
@@ -92,6 +93,7 @@ public class Model implements ActionListener {
         twoT.setBounds(140, 210, 120, 30);
         threeT.setBounds(270, 210, 120, 30);
         button.setBounds(140, 420, 120, 60);
+        res.setBounds(10, 420, 120, 60);
         numOne.setBounds(10, 10, 120, 200);
         numTwo.setBounds(140, 10, 120, 200);
         numThree.setBounds(270, 10, 120, 200);
@@ -109,6 +111,7 @@ public class Model implements ActionListener {
         frame.add(x);
         frame.add(y);
         frame.add(z);
+        frame.add(res);
         frame.add(oneT);
         frame.add(twoT);
         frame.add(threeT);
@@ -132,20 +135,23 @@ public class Model implements ActionListener {
         y.setText(SecondSecret + " :Val");
         z.setText(ThirdSecret + " :Val");
         button.addActionListener(this);
+        res.addActionListener(this);
+
+        //reset();
     }
-
-
 
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        GuessOne = Integer.parseInt(oneT.getText());
-        GuessTwo = Integer.parseInt(twoT.getText());
-        GuessThree = Integer.parseInt(threeT.getText());
+        JButton actionSource = (JButton) e.getSource();
+        if (actionSource.equals(button)) {
+            GuessOne = Integer.parseInt(oneT.getText());
+            GuessTwo = Integer.parseInt(twoT.getText());
+            GuessThree = Integer.parseInt(threeT.getText());
             x.setText(GuessOne + " :Guess");
 
-            if(GuessOne.equals(firstSecret)& !GuessTwo.equals(SecondSecret) & !GuessThree.equals(ThirdSecret)){
+            if (GuessOne.equals(firstSecret) & !GuessTwo.equals(SecondSecret) & !GuessThree.equals(ThirdSecret)) {
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
 
@@ -155,8 +161,7 @@ public class Model implements ActionListener {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }
-            else if(GuessTwo.equals(SecondSecret) & !GuessOne.equals(firstSecret) & !GuessThree.equals(ThirdSecret)){
+            } else if (GuessTwo.equals(SecondSecret) & !GuessOne.equals(firstSecret) & !GuessThree.equals(ThirdSecret)) {
                 try {
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     x.setText("Не верно");
@@ -165,8 +170,7 @@ public class Model implements ActionListener {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }
-            else if(GuessThree.equals(ThirdSecret) & !GuessTwo.equals(SecondSecret) & !GuessOne.equals(firstSecret)){
+            } else if (GuessThree.equals(ThirdSecret) & !GuessTwo.equals(SecondSecret) & !GuessOne.equals(firstSecret)) {
                 try {
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
                     x.setText("Не верно");
@@ -175,11 +179,9 @@ public class Model implements ActionListener {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }
-
-            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & !GuessThree.equals(ThirdSecret)){
+            } else if (GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & !GuessThree.equals(ThirdSecret)) {
                 try {
-                    numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(numOne + ".png"))));
+                    numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
                     x.setText("Верно");
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     y.setText("Верно");
@@ -187,28 +189,56 @@ public class Model implements ActionListener {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }
-            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & GuessThree.equals(ThirdSecret)){
+            } else if (!GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & GuessThree.equals(ThirdSecret)) {
                 try {
+                    numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
+                    x.setText("Не верно");
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
+                    y.setText("Верно");
+                    z.setText("верно");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            } else if (GuessOne.equals(firstSecret) & !GuessTwo.equals(SecondSecret) & GuessThree.equals(ThirdSecret)) {
+                try {
+                    numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
+                    x.setText("верно");
+                    numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
+                    y.setText("Не Верно");
+                    z.setText("верно");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            } else if (GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & GuessThree.equals(ThirdSecret)) {
+                try {
+                    numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
                     x.setText("Верно");
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     y.setText("Верно");
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
                     z.setText("Верно");
+
+
+
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }
-            else {
+            } else {
                 x.setText("Не верно");
                 y.setText("Не верно");
                 z.setText("Не верно");
             }
 
 
+        } else if (actionSource.equals(res)) {
+            firstSecret = r.nextInt(9);
+            SecondSecret = r.nextInt(9);
+            ThirdSecret = r.nextInt(9);
 
+            numOne.setIcon(new ImageIcon(hidden1));
+            numTwo.setIcon(new ImageIcon(hidden2));
+            numThree.setIcon(new ImageIcon(hidden3));
         }
-
     }
 
+}
