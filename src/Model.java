@@ -4,17 +4,19 @@ import javax.annotation.Generated;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
-public class Model {
+public class Model implements ActionListener {
 
     Random r = new Random();
     Integer firstSecret,SecondSecret,ThirdSecret;
-    Integer GuessOne = 100;
-    Integer GuessTwo = 100;
-    Integer GuessThree = 100;
+    Integer GuessOne ;
+    Integer GuessTwo ;
+    Integer GuessThree ;
     BufferedImage hidden1,hidden2,hidden3;
     BufferedImage ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,ZERO;
 
@@ -133,17 +135,9 @@ public class Model {
         x.setText(firstSecret + " :Val");
         y.setText(SecondSecret + " :Val");
         z.setText(ThirdSecret + " :Val");
-        button.addActionListener(evt -> {
-            //Add a 1 to the last selected text field
-            GuessOne = Integer.valueOf(oneT.getText());
-            GuessTwo = Integer.valueOf(twoT.getText());
-            GuessThree = Integer.valueOf(threeT.getText());
-            return;
+        button.addActionListener(this);
 
 
-
-
-        });
 
         x.setText(GuessOne + " :Guess");
 
@@ -185,4 +179,11 @@ public class Model {
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        GuessOne = Integer.parseInt(oneT.getText());
+        GuessTwo = Integer.parseInt(twoT.getText());
+        GuessThree = Integer.parseInt(threeT.getText());
+
+    }
 }
