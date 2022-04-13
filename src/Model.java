@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Model implements ActionListener {
@@ -28,7 +29,6 @@ public class Model implements ActionListener {
     JButton button;
 
     Dimension dim;
-
 
 
     void create() throws IOException {
@@ -143,6 +143,7 @@ public class Model implements ActionListener {
         GuessTwo = Integer.parseInt(twoT.getText());
         GuessThree = Integer.parseInt(threeT.getText());
             x.setText(GuessOne + " :Guess");
+
 
             if(GuessOne == firstSecret){
                 if(firstSecret == 1){
