@@ -156,7 +156,7 @@ public class Model implements ActionListener {
                     ex.printStackTrace();
                 }
             }
-            else if(GuessTwo.equals(SecondSecret) ){
+            else if(GuessTwo.equals(SecondSecret) & !GuessOne.equals(firstSecret) & !GuessThree.equals(ThirdSecret)){
                 try {
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     x.setText("Не верно");
@@ -166,7 +166,7 @@ public class Model implements ActionListener {
                     ex.printStackTrace();
                 }
             }
-            else if(GuessThree.equals(ThirdSecret)){
+            else if(GuessThree.equals(ThirdSecret) & !GuessTwo.equals(SecondSecret) & !GuessOne.equals(firstSecret)){
                 try {
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
                     x.setText("Не верно");
@@ -176,7 +176,7 @@ public class Model implements ActionListener {
                     ex.printStackTrace();
                 }
             }
-            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret)){
+            else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & !GuessThree.equals(ThirdSecret)){
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(numOne + ".png"))));
                     x.setText("Верно");
