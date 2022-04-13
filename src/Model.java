@@ -144,85 +144,16 @@ public class Model implements ActionListener {
         GuessThree = Integer.parseInt(threeT.getText());
             x.setText(GuessOne + " :Guess");
 
-
-            if(GuessOne == firstSecret){
-                if(firstSecret == 1){
-                    numOne.setIcon(new ImageIcon(ONE));
-                }
-                if(firstSecret == 2){
-                    numOne.setIcon(new ImageIcon(TWO));
-                }
-                if(firstSecret == 3){
-                    numOne.setIcon(new ImageIcon(THREE));
-                }
-                if(firstSecret == 4){
-                    numOne.setIcon(new ImageIcon(FOUR));
-                }
-                if(firstSecret == 5){
-                    numOne.setIcon(new ImageIcon(FIVE));
-                }
-                if(firstSecret == 6){
-                    numOne.setIcon(new ImageIcon(SIX));
-                }
-                if(firstSecret == 7){
-                    numOne.setIcon(new ImageIcon(SEVEN));
-                }
-                if(firstSecret == 8){
-                    numOne.setIcon(new ImageIcon(EIGHT));
-                }
-                if(firstSecret == 9){
-                    numOne.setIcon(new ImageIcon(EIGHT));
-                }
-                if(firstSecret == 0){
-                    numOne.setIcon(new ImageIcon(ZERO));
-                }
-
+            if(GuessOne.equals(firstSecret)){
+                numOne.setIcon(new ImageIcon(String.valueOf(GuessOne) + ".png"));
             }
-        else if(GuessOne==firstSecret &  GuessTwo == SecondSecret){
-            if(firstSecret == 1 & SecondSecret == 2){
-                numOne.setIcon(new ImageIcon(ONE));
-                numTwo.setIcon( new ImageIcon(ONE));
+            else if(GuessTwo.equals(SecondSecret)){
+                numTwo.setIcon(new ImageIcon(GuessTwo + ".png"));
             }
-            if(firstSecret == 2 & SecondSecret == 2){
-                numOne.setIcon(new ImageIcon(TWO));
-                numTwo.setIcon( new ImageIcon(TWO));
-            }
-            if(firstSecret ==3 & SecondSecret == 3){
-                numOne.setIcon(new ImageIcon(THREE));
-                numTwo.setIcon( new ImageIcon(THREE));
-
-            }
-            if(firstSecret == 4 & SecondSecret == 4){
-                numOne.setIcon(new ImageIcon(FOUR));
-                numTwo.setIcon( new ImageIcon(FOUR));
-            }
-            if(firstSecret == 5 & SecondSecret == 5){
-                numOne.setIcon(new ImageIcon(FIVE));
-                numTwo.setIcon( new ImageIcon(FIVE));
-            }
-            if(firstSecret == 6 & SecondSecret == 6){
-                numOne.setIcon(new ImageIcon(SIX));
-                numTwo.setIcon( new ImageIcon(SIX));
-            }
-            if(firstSecret == 7 & SecondSecret == 7){
-                numOne.setIcon(new ImageIcon(SEVEN));
-                numTwo.setIcon( new ImageIcon(SEVEN));
-            }
-            if(firstSecret == 8 & SecondSecret ==  8){
-                numOne.setIcon(new ImageIcon(EIGHT));
-                numTwo.setIcon( new ImageIcon(EIGHT));
-            }
-            if(firstSecret == 9 & SecondSecret == 9){
-                numOne.setIcon(new ImageIcon(NINE));
-                numTwo.setIcon( new ImageIcon(NINE));
-
-            }
-            if(firstSecret == 0 & SecondSecret == 0){
-                numOne.setIcon(new ImageIcon(ZERO));
-                numTwo.setIcon( new ImageIcon(ZERO));
+            else if(GuessThree.equals(ThirdSecret)){
+                numThree.setIcon(new ImageIcon(GuessThree + ".png"));
             }
 
-        }
 
 
         }
