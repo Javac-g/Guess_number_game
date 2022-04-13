@@ -10,8 +10,11 @@ import java.util.Random;
 
 public class Model {
 
-    Random r;
-    Integer firstSecret,SecondSecret,ThirdSecret,GuessOne,GuessTwo,GuessThree;
+    Random r = new Random();
+    Integer firstSecret,SecondSecret,ThirdSecret;
+    Integer GuessOne = 100;
+    Integer GuessTwo = 100;
+    Integer GuessThree = 100;
     BufferedImage hidden1,hidden2,hidden3;
     BufferedImage ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,ZERO;
 
@@ -63,6 +66,11 @@ public class Model {
         numTwo = new JLabel();
         numThree = new JLabel();
 
+        x = new JLabel("XXXX");
+        y = new JLabel("YYYY");
+        z = new JLabel("ZZZZ");
+
+
         numOne.setIcon(new ImageIcon(hidden1));
         numTwo.setIcon(new ImageIcon(hidden2));
         numThree.setIcon(new ImageIcon(hidden3));
@@ -75,6 +83,12 @@ public class Model {
         button = new JButton("ENTER");
 
         oneT.setBounds(10,210,120,30);
+        x.setBounds(50,160,120,200);
+        x.setForeground(Color.RED);
+        y.setBounds(180,160,120,200);
+        y.setForeground(Color.RED);
+        z.setBounds(310,160,120,200);
+        z.setForeground(Color.RED);
         twoT.setBounds(140,210,120,30);
         threeT.setBounds(270,210,120,30);
         button.setBounds(140,420,120,60);
@@ -92,7 +106,9 @@ public class Model {
         numThree.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
         panel.setBackground(Color.DARK_GRAY);
-
+        frame.add(x);
+        frame.add(y);
+        frame.add(z);
         frame.add(oneT);
         frame.add(twoT);
         frame.add(threeT);
@@ -108,27 +124,30 @@ public class Model {
         frame.setVisible(true);
 
 
-    }
-    void game(){
+
 
         firstSecret = r.nextInt(9);
         SecondSecret = r.nextInt(9);
         ThirdSecret = r.nextInt(9);
 
-        button.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                //Add a 1 to the last selected text field
-                GuessOne = Integer.valueOf(oneT.getText());
-                GuessTwo = Integer.valueOf(twoT.getText());
-                GuessThree = Integer.valueOf(threeT.getText());
+        x.setText(firstSecret + " :Val");
+        y.setText(SecondSecret + " :Val");
+        z.setText(ThirdSecret + " :Val");
+        button.addActionListener(evt -> {
+            //Add a 1 to the last selected text field
+            GuessOne = Integer.valueOf(oneT.getText());
+            GuessTwo = Integer.valueOf(twoT.getText());
+            GuessThree = Integer.valueOf(threeT.getText());
+            return;
 
 
-            }
+
+
         });
 
-        if(GuessOne.equals(firstSecret)){
+        x.setText(GuessOne + " :Guess");
+
+        if(GuessOne==firstSecret){
             if(firstSecret == 1){
                 numOne.setIcon(new ImageIcon(ONE));
             }
