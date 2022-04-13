@@ -13,12 +13,12 @@ public class Model {
     Random r;
     Integer firstSecret,SecondSecret,ThirdSecret,GuessOne,GuessTwo,GuessThree;
     BufferedImage hidden1,hidden2,hidden3;
-    BufferedImage ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE;
+    BufferedImage ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE,ZERO;
 
     static JFrame frame;
     static JPanel panel;
 
-    JLabel numOne,numTwo,numThree;
+    JLabel numOne,numTwo,numThree,x,y,z;
     JTextField oneT, twoT, threeT;
     JButton button;
 
@@ -48,14 +48,26 @@ public class Model {
         ONE =  ImageIO.read(getClass().getResource("1.png"));
         TWO = ImageIO.read(getClass().getResource("2.png"));
         THREE = ImageIO.read(getClass().getResource("3.png"));
+        FOUR = ImageIO.read(getClass().getResource("4.png"));
+        FIVE  = ImageIO.read(getClass().getResource("5.png"));
+        SIX = ImageIO.read(getClass().getResource("6.png"));
+        SEVEN = ImageIO.read(getClass().getResource("7.png"));
+        EIGHT = ImageIO.read(getClass().getResource("8.png"));
+        NINE = ImageIO.read(getClass().getResource("9.png"));
+        ZERO = ImageIO.read(getClass().getResource("0.png"));
 
 
 
 
+        numOne = new JLabel();
+        numTwo = new JLabel();
+        numThree = new JLabel();
 
-        numOne = new JLabel(new ImageIcon(hidden1));
-        numTwo = new JLabel(new ImageIcon(hidden2));
-        numThree = new JLabel(new ImageIcon(hidden3));
+        numOne.setIcon(new ImageIcon(hidden1));
+        numTwo.setIcon(new ImageIcon(hidden2));
+        numThree.setIcon(new ImageIcon(hidden3));
+
+
 
         oneT = new JTextField();
         twoT = new JTextField();
@@ -117,6 +129,36 @@ public class Model {
         });
 
         if(GuessOne.equals(firstSecret)){
+            if(firstSecret == 1){
+                numOne.setIcon(new ImageIcon(ONE));
+            }
+            if(firstSecret == 2){
+                numOne.setIcon(new ImageIcon(TWO));
+            }
+            if(firstSecret == 3){
+                numOne.setIcon(new ImageIcon(THREE));
+            }
+            if(firstSecret == 4){
+                numOne.setIcon(new ImageIcon(FOUR));
+            }
+            if(firstSecret == 5){
+                numOne.setIcon(new ImageIcon(FIVE));
+            }
+            if(firstSecret == 6){
+                numOne.setIcon(new ImageIcon(SIX));
+            }
+            if(firstSecret == 7){
+                numOne.setIcon(new ImageIcon(SEVEN));
+            }
+            if(firstSecret == 8){
+                numOne.setIcon(new ImageIcon(EIGHT));
+            }
+            if(firstSecret == 9){
+                numOne.setIcon(new ImageIcon(EIGHT));
+            }
+            if(firstSecret == 0){
+                numOne.setIcon(new ImageIcon(ZERO));
+            }
 
         }
 
