@@ -179,6 +179,7 @@ public class Model implements ActionListener {
             //asdasdadadasdasdad
             //Clever
             //Type
+            //SCP
             else if(GuessOne.equals(firstSecret) & GuessTwo.equals(SecondSecret) & !GuessThree.equals(ThirdSecret)){
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(numOne + ".png"))));
