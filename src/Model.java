@@ -9,12 +9,29 @@ import java.io.IOException;
 
 public class Model {
 
+    BufferedImage hidden1,hidden2,hidden3;
+    BufferedImage ONE,TWO,THREE,FOUR,FIVE,SIX,SEVEN,EIGHT,NINE;
+
+    static JFrame frame;
+    static JPanel panel;
+
+    JLabel numOne,numTwo,numThree;
+    JTextField oneT, twoT, threeT;
+    JButton button;
+
+    Dimension dim;
+
+
+
     void create() throws IOException {
+        dim = Toolkit.getDefaultToolkit().getScreenSize();
 
-        JFrame frame = new JFrame("GUESS NUMBER GAME");
+        frame = new JFrame("GUESS NUMBER GAME");
+        frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
+        frame.setSize(400,500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-        JPanel panel = new JPanel(){
+        panel = new JPanel(){
             @Override
             public Dimension getPreferredSize() {
                 return new Dimension(400, 500);
@@ -22,24 +39,22 @@ public class Model {
         };
 
 
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setLocation(dim.width/2-frame.getSize().width/2, dim.height/2-frame.getSize().height/2);
-        frame.setSize(400,500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        BufferedImage hidden1 = ImageIO.read(getClass().getResource("Q.png"));
-        BufferedImage hidden2 = ImageIO.read(getClass().getResource("Q.png"));
-        BufferedImage hidden3 = ImageIO.read(getClass().getResource("Q.png"));
+        hidden1 = ImageIO.read(getClass().getResource("Q.png"));
+        hidden2 = ImageIO.read(getClass().getResource("Q.png"));
+        hidden3 = ImageIO.read(getClass().getResource("Q.png"));
 
 
-        JLabel numOne = new JLabel(new ImageIcon(hidden1));
-        JLabel numTwo = new JLabel(new ImageIcon(hidden2));
-        JLabel numThree = new JLabel(new ImageIcon(hidden3));
 
-        JTextField oneT = new JTextField();
-        JTextField twoT = new JTextField();
-        JTextField threeT = new JTextField();
-        JButton button = new JButton("ENTER");
+
+
+        numOne = new JLabel(new ImageIcon(hidden1));
+        numTwo = new JLabel(new ImageIcon(hidden2));
+        numThree = new JLabel(new ImageIcon(hidden3));
+
+        oneT = new JTextField();
+        twoT = new JTextField();
+        threeT = new JTextField();
+        button = new JButton("ENTER");
 
         oneT.setBounds(10,210,120,30);
         twoT.setBounds(140,210,120,30);
@@ -77,6 +92,9 @@ public class Model {
 
     }
     void game(){
+
+
+
 
     }
 
