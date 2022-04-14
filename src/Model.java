@@ -156,6 +156,7 @@ public class Model implements ActionListener {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
 
                     x.setText("Верно");
+                    x.setForeground(Color.green);
                     y.setText("Не верно");
                     z.setText("Не верно");
                 } catch (IOException ex) {
@@ -166,6 +167,7 @@ public class Model implements ActionListener {
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     x.setText("Не верно");
                     y.setText("Верно");
+                    y.setForeground(Color.green);
                     z.setText("Не верно");
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -176,6 +178,7 @@ public class Model implements ActionListener {
                     x.setText("Не верно");
                     y.setText("Не верно");
                     z.setText("Верно");
+                    z.setForeground(Color.green);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -183,8 +186,10 @@ public class Model implements ActionListener {
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
                     x.setText("Верно");
+                    x.setForeground(Color.green);
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     y.setText("Верно");
+                    y.setForeground(Color.green);
                     z.setText("Не верно");
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -195,7 +200,9 @@ public class Model implements ActionListener {
                     x.setText("Не верно");
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
                     y.setText("Верно");
+                    y.setForeground(Color.green);
                     z.setText("верно");
+                    z.setForeground(Color.green);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -203,9 +210,11 @@ public class Model implements ActionListener {
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
                     x.setText("верно");
+                    x.setForeground(Color.green);
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
                     y.setText("Не Верно");
                     z.setText("верно");
+                    z.setForeground(Color.green);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -213,10 +222,13 @@ public class Model implements ActionListener {
                 try {
                     numOne.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessOne + ".png"))));
                     x.setText("Верно");
+                    x.setForeground(Color.green);
                     numTwo.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessTwo + ".png"))));
                     y.setText("Верно");
+                    y.setForeground(Color.green);
                     numThree.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(GuessThree + ".png"))));
                     z.setText("Верно");
+                    z.setForeground(Color.green);
 
 
 
@@ -225,8 +237,11 @@ public class Model implements ActionListener {
                 }
             } else {
                 x.setText("Не верно");
+                x.setForeground(Color.RED);
                 y.setText("Не верно");
+                y.setForeground(Color.RED);
                 z.setText("Не верно");
+                z.setForeground(Color.RED);
             }
 
 
